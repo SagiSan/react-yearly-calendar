@@ -92,7 +92,7 @@ class Calendar extends Component {
   //   }
   // }
   dayHovered(date) {
-    if(!date) {
+    if (!date) {
       // clicked on prev or next button
     }
     onDayHover(date);
