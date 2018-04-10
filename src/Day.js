@@ -36,7 +36,7 @@ class Day extends Component {
   render() {
     const { classes, day } = this.props;
     return (
-      <td onClick={this.onClick} onMouseEnter={this.onHover} className={classes}>
+      <td onClick={this.onClick} onMouseEnter={this.onHover} className={classes} id={`t${day}`}>
         <span className="day-number">{day === null ? '' : day.date()}</span>
       </td>
     );
