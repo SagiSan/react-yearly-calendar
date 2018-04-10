@@ -6,6 +6,7 @@ const propTypes = {
   classes: PropTypes.string,
   dayClicked: PropTypes.func.isRequired,
   dayHovered: PropTypes.func.isRequired,
+  onDayMouseLeave: PropTypes.func.isRequired,
   day: momentObj
 };
 
@@ -23,7 +24,6 @@ class Day extends Component {
   }
 
   onClick() {
-    alert('clicked day');
     const { dayClicked, day } = this.props;
     dayClicked(day);
   }
@@ -32,11 +32,20 @@ class Day extends Component {
     const { dayHovered, day } = this.props;
     dayHovered(day);
   }
-
+  onDayMouseLeave() {
+    const { onDayMouseLeave } = this.props;
+    onDayMouseLeave();
+  }
   render() {
     const { classes, day } = this.props;
     return (
-      <td onClick={this.onClick} onMouseEnter={this.onHover} className={classes} id={`t${day}`}>
+      <td
+        onClick={this.onClick}
+        onMouseEnter={this.onHover}
+        onMouseLeave={this.onDayMouseLeave}
+        className={classes}
+        id={`t${day}`}
+      >
         <span className="day-number">{day === null ? '' : day.date()}</span>
       </td>
     );

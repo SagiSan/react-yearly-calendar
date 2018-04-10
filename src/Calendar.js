@@ -15,6 +15,7 @@ const propTypes = {
   onPickDate: PropTypes.func,
   onPickRange: PropTypes.func,
   onDayHover: PropTypes.func,
+  onDayMouseLeave: PropTypes.func,
   selectedDay: momentObj,
   customClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
 };
@@ -98,7 +99,10 @@ class Calendar extends Component {
     }
     onDayHover(date);
   }
-
+  onDayMouseLeave() {
+    const { onDayMouseLeave } = this.props;
+    onDayMouseLeave();
+  }
   renderDaysOfWeek() {
     const { firstDayOfWeek, forceFullWeeks, showWeekSeparators } = this.props;
     const totalDays = forceFullWeeks ? 42 : 37;
@@ -140,6 +144,7 @@ class Calendar extends Component {
         key={`month-${month}`}
         dayClicked={(d, classes) => this.dayClicked(d, classes)}
         dayHovered={d => this.dayHovered(d)}
+        onDayMouseLeave={() => this.onDayMouseLeave()}
         {...this.props}
         selectingRange={selectingRange}
       />
