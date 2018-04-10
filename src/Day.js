@@ -33,7 +33,7 @@ class Day extends Component {
     dayHovered(day);
   }
   onMouseLeave() {
-    const { onMouseLeave } = this.props;
+    const { onMouseLeave, day } = this.props;
     console.log(onMouseLeave);
     onMouseLeave(day);
   }
