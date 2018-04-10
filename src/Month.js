@@ -120,9 +120,7 @@ class Month extends Component {
 
   dayHovered(day) {
     const { selectRange, dayHovered } = this.props;
-    if (selectRange) {
-      dayHovered(day);
-    }
+    dayHovered(day);
   }
 
   renderMonthDays() {

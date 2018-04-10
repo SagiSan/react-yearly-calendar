@@ -78,7 +78,7 @@ class Calendar extends Component {
       // clicked on prev or next month
       return;
     }
-
+    console.log('hovered day');
     const { selectingRange } = this.state;
 
     if (selectingRange) {
