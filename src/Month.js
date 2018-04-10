@@ -123,10 +123,10 @@ class Month extends Component {
     const { selectRange, dayHovered } = this.props;
     dayHovered(day);
   }
-  onDayMouseLeave() {
+  onDayMouseLeave(day) {
     const { onDayMouseLeave } = this.props;
     console.log(onDayMouseLeave);
-    onDayMouseLeave();
+    onDayMouseLeave(day);
   }
   renderMonthDays() {
     const {
@@ -242,7 +242,7 @@ class Month extends Component {
           classes={classes.join(' ')}
           dayClicked={d => this.dayClicked(d, classes.join(' '))}
           dayHovered={d => this.dayHovered(d)}
-          onDayMouseLeave={() => this.onDayMouseLeave()}
+          onDayMouseLeave={d => this.onDayMouseLeave(d)}
         />
       );
     });

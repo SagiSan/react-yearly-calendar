@@ -99,9 +99,9 @@ class Calendar extends Component {
     }
     onDayHover(date);
   }
-  onDayMouseLeave() {
+  onDayMouseLeave(date) {
     const { onDayMouseLeave } = this.props;
-    onDayMouseLeave();
+    onDayMouseLeave(date);
   }
   renderDaysOfWeek() {
     const { firstDayOfWeek, forceFullWeeks, showWeekSeparators } = this.props;
@@ -144,7 +144,7 @@ class Calendar extends Component {
         key={`month-${month}`}
         dayClicked={(d, classes) => this.dayClicked(d, classes)}
         dayHovered={d => this.dayHovered(d)}
-        onDayMouseLeave={() => this.onDayMouseLeave()}
+        onDayMouseLeave={d => this.onDayMouseLeave(d)}
         {...this.props}
         selectingRange={selectingRange}
       />
