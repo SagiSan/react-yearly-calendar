@@ -14,6 +14,7 @@ const propTypes = {
   selectRange: PropTypes.bool,
   onPickDate: PropTypes.func,
   onPickRange: PropTypes.func,
+  onDayHover: PropTypes.funcs,
   selectedDay: momentObj,
   customClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
 };
@@ -26,6 +27,7 @@ const defaultProps = {
   selectRange: false,
   onPickDate: null,
   onPickRange: null,
+  onDayHover: null,
   selectedDay: moment(),
   customClasses: null
 };
@@ -73,21 +75,27 @@ class Calendar extends Component {
     });
   }
 
-  dayHovered(hoveredDay) {
-    if (!hoveredDay) {
-      // clicked on prev or next month
-      return;
-    }
-    console.log('hovered day');
-    const { selectingRange } = this.state;
+  // dayHovered(hoveredDay) {
+  //   if (!hoveredDay) {
+  //     // clicked on prev or next month
+  //     return;
+  //   }
+  //   console.log('hovered day');
+  //   const { selectingRange } = this.state;
 
-    if (selectingRange) {
-      selectingRange[1] = hoveredDay;
+  //   if (selectingRange) {
+  //     selectingRange[1] = hoveredDay;
 
-      this.setState({
-        selectingRange
-      });
+  //     this.setState({
+  //       selectingRange
+  //     });
+  //   }
+  // }
+  dayHovered(date) {
+    if(!date) {
+      // clicked on prev or next button
     }
+    onDayHover(date);
   }
 
   renderDaysOfWeek() {
