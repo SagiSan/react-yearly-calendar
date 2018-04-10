@@ -18,7 +18,7 @@ const propTypes = {
   customClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   dayClicked: PropTypes.func.isRequired,
   dayHovered: PropTypes.func.isRequired,
-  onMouseLeave: PropTypes.func.isRequired
+  onLeave: PropTypes.func.isRequired
 };
 
 const defaultProps = {
@@ -123,10 +123,9 @@ class Month extends Component {
     const { selectRange, dayHovered } = this.props;
     dayHovered(day);
   }
-  onMouseLeave(day) {
-    const { onMouseLeave } = this.props;
-    console.log(onMouseLeave);
-    onMouseLeave(day);
+  onLeave(date) {
+    const { onLeave } = this.props;
+    onLeave(date);
   }
   renderMonthDays() {
     const {
@@ -242,7 +241,7 @@ class Month extends Component {
           classes={classes.join(' ')}
           dayClicked={d => this.dayClicked(d, classes.join(' '))}
           dayHovered={d => this.dayHovered(d)}
-          onMouseLeave={d => this.onMouseLeave(d)}
+          onLeave={d => this.onLeave(d)}
         />
       );
     });
