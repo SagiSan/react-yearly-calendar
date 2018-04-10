@@ -34,6 +34,7 @@ class Day extends Component {
   }
   onDayMouseLeave() {
     const { onDayMouseLeave } = this.props;
+    console.log(onDayMouseLeave);
     onDayMouseLeave();
   }
   render() {
