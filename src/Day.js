@@ -23,7 +23,7 @@ class Day extends Component {
   }
 
   onClick() {
-    aler('clicked day');
+    alert('clicked day');
     const { dayClicked, day } = this.props;
     dayClicked(day);
   }
