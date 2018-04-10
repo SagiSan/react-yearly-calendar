@@ -126,7 +126,7 @@ class Month extends Component {
   onMouseLeave(day) {
     const { onMouseLeave } = this.props;
     console.log(onMouseLeave);
-    onDayMouseLeave(day);
+    onMouseLeave(day);
   }
   renderMonthDays() {
     const {

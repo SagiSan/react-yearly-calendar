@@ -102,6 +102,9 @@ class Calendar extends Component {
   }
   onMouseLeave(date) {
     const { onMouseLeave } = this.props;
+    if (!date) {
+      // clicked on prev or next button
+    }
     onMouseLeave(date);
   }
   renderDaysOfWeek() {
