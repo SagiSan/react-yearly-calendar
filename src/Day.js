@@ -21,6 +21,7 @@ class Day extends Component {
 
     this.onClick = this.onClick.bind(this);
     this.onHover = this.onHover.bind(this);
+    this.onTest = this.onTest.bind(this);
   }
 
   onClick() {
