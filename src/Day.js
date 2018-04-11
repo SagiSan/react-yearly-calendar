@@ -21,7 +21,7 @@ class Day extends Component {
 
     this.onClick = this.onClick.bind(this);
     this.onHover = this.onHover.bind(this);
-    this.onDayMouseLeft = this.onDayMouseLeft.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
   }
 
   onClick() {
