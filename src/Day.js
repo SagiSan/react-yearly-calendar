@@ -42,7 +42,7 @@ class Day extends Component {
     return (
       <td
         onClick={this.onClick}
-        onMouseEnter={this.onHover}
+        onMouseOver={this.onHover}
         onMouseLeave={this.onMouseLeave}
         className={classes}
         id={`t${day}`}
