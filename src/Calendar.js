@@ -14,8 +14,8 @@ const propTypes = {
   selectRange: PropTypes.bool,
   onPickDate: PropTypes.func,
   onPickRange: PropTypes.func,
-  onTest: PropTypes.func,
   onDayHover: PropTypes.func,
+  onDayMouseLeave: PropTypes.func,
   selectedDay: momentObj,
   customClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
 };
@@ -28,8 +28,8 @@ const defaultProps = {
   selectRange: false,
   onPickDate: null,
   onPickRange: null,
-  onTest: null,
   onDayHover: null,
+  onDayMouseLeave: null,
   selectedDay: moment(),
   customClasses: null
 };
@@ -100,12 +100,12 @@ class Calendar extends Component {
     }
     onDayHover(date);
   }
-  testHovered(date) {
-    const { onTest } = this.props;
+  onDayMouseLeft(date) {
+    const { onDayMouseLeave } = this.props;
     if (!date) {
       // clicked on prev or next button
     }
-    onTest(date);
+    onDayMouseLeave(date);
   }
   renderDaysOfWeek() {
     const { firstDayOfWeek, forceFullWeeks, showWeekSeparators } = this.props;
@@ -147,8 +147,8 @@ class Calendar extends Component {
         month={month}
         key={`month-${month}`}
         dayClicked={(d, classes) => this.dayClicked(d, classes)}
-        testHovered={d => this.dayHovered(d)}
         dayHovered={d => this.dayHovered(d)}
+        onDayMouseLeft={d => this.onDayMouseLeft(d)}
         {...this.props}
         selectingRange={selectingRange}
       />

@@ -5,7 +5,7 @@ import { momentObj } from 'react-moment-proptypes';
 const propTypes = {
   classes: PropTypes.string,
   dayClicked: PropTypes.func.isRequired,
-  testHovered: PropTypes.func.isRequired,
+  onDayMouseLeft: PropTypes.func.isRequired,
   dayHovered: PropTypes.func.isRequired,
   day: momentObj
 };
@@ -33,17 +33,17 @@ class Day extends Component {
     const { dayHovered, day } = this.props;
     dayHovered(day);
   }
-  onTest() {
-    const { testHovered, day } = this.props;
-    testHovered(day);
+  onMouseLeave() {
+    const { onDayMouseLeft, day } = this.props;
+    onDayMouseLeft(day);
   }
   render() {
     const { classes, day } = this.props;
     return (
       <td
         onClick={this.onClick}
-        onMouseEnter={this.onTest}
-        // onMouseLeave={this.onHover}
+        onMouseEnter={this.onHover}
+        onMouseLeave={this.onMouseLeave}
         className={classes}
         id={`t${day}`}
       >
