@@ -17,8 +17,8 @@ const propTypes = {
   selectedRange: PropTypes.arrayOf(momentObj),
   customClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   dayClicked: PropTypes.func.isRequired,
-  dayHovered: PropTypes.func.isRequired,
-  onLeave: PropTypes.func.isRequired
+  testHovered: PropTypes.func.isRequired,
+  dayHovered: PropTypes.func.isRequired
 };
 
 const defaultProps = {
@@ -123,9 +123,9 @@ class Month extends Component {
     const { selectRange, dayHovered } = this.props;
     dayHovered(day);
   }
-  onLeave(date) {
-    const { onLeave } = this.props;
-    onLeave(date);
+  testHovered(day) {
+    const { selectedRange, testHovered } = this.props;
+    testHovered(day);
   }
   renderMonthDays() {
     const {
@@ -240,8 +240,8 @@ class Month extends Component {
           day={day.isValid() ? day : null}
           classes={classes.join(' ')}
           dayClicked={d => this.dayClicked(d, classes.join(' '))}
+          testHovered={d => this.testHovered(d)}
           dayHovered={d => this.dayHovered(d)}
-          onLeave={d => this.onLeave(d)}
         />
       );
     });
